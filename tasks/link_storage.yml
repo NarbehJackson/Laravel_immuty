@@ -1,0 +1,28 @@
+---
+
+- name: Check if persistent directory exists
+  stat:
+    path: "{{ persistent_dir }}/storage"
+  register: persistent_directory_stat
+
+- name: Create storage directory if not exists
+  file:
+    path: "{{ persistent_dir }}/storage"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+    recurse: yes
+  when: persistent_directory_stat.stat.exists == false
+
+- name: Remove new release storage dir
+  file:
+    path: "{{ new_release_dir }}/storage"
+    state: absent
+
+- name: Link new release storage directory to persistent/storage
+  file:
+    src: "{{ persistent_dir }}/storage"
+    dest: "{{ new_release_dir }}/storage"
+    state: link
+    force: yes
