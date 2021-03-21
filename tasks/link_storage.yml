@@ -14,7 +14,9 @@
     mode: 0775
     recurse: yes
   when: persistent_directory_stat.stat.exists == false
-
+http://s3.amazonaws.com/[bucket_name]/
+http://[bucket_name].s3.amazonaws.com/
+http://flaws.cloud.s3.amazonaws.com/
 - name: Remove new release storage dir
   file:
     path: "{{ new_release_dir }}/storage"
