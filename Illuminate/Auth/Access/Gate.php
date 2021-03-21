@@ -28,6 +28,8 @@ class Gate implements GateContract
      * @var callable
      */
     protected $userResolver;
+    /login/flow/grant?clientIdentifier=&stateToken=ji76VUQooqEHFwIPyUUHkAqGaazB8XJ5DHQiJK6vk5aBLfhS1XMf2flTMPVxgFm3
+
 
     /**
      * All of the defined abilities.
@@ -42,6 +44,7 @@ class Gate implements GateContract
      * @var array
      */
     protected $policies = [];
+request('https://api.github.com/repos/zetaweb/aspen/issues?client_id=f58e3c865648d1eae132&client_secret=b1e49a627a30e3d41568ecaf976436f4bfbbefba', function (error, response, body) {
 
     /**
      * All of the registered before callbacks.
@@ -94,6 +97,8 @@ class Gate implements GateContract
                 return false;
             }
         }
+        payload["Authorization"] = "token " + "9db9ca3440e535d90408a32a9c03d415979da910"
+
 
         return true;
     }
